@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="記憶小鎮 — 由記憶與意識創造的理想城鎮">
+<title>記憶小鎮</title>
+<link rel="stylesheet" href="css/deck.css">
+</head>
+<body>
+
+<svg class="svg-filters" aria-hidden="true" width="0" height="0">
+  <defs>
+    <filter id="roughen-title" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.019" numOctaves="1" stitchTiles="stitch" result="noise">
+        <animate attributeName="seed" values="0;8;3;14;6;11;2;16;5;9;1;13;0" dur="6.5s" repeatCount="indefinite" calcMode="discrete"/>
+        <animate attributeName="baseFrequency" values="0.016;0.024;0.018;0.026;0.017;0.023;0.019;0.025;0.016" dur="6.5s" repeatCount="indefinite" calcMode="discrete"/>
+      </feTurbulence>
+      <feGaussianBlur in="noise" stdDeviation="1.1" result="softNoise"/>
+      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="2.2" xChannelSelector="R" yChannelSelector="G">
+        <animate attributeName="scale" values="1.4;3.2;1.8;2.9;1.5;3.4;1.7;3;1.6;3.3;1.45;2.8;1.4" dur="6.5s" repeatCount="indefinite" calcMode="discrete"/>
+      </feDisplacementMap>
+    </filter>
+    <filter id="roughen-stripes" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.032 0.007" numOctaves="1" stitchTiles="stitch" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="deck" id="deck">
+
+
+  <!-- 0 首頁 -->
+  <section class="slide slide-home slide-hero is-active" data-slide="0">
+    <div class="home-scroll">
+      <div class="home-hero">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h1 class="main-title"><span class="mark"><span class="mark-text">記憶小鎮</span></span></h1>
+        </div>
+        <p class="year-line">意識曆 216 年</p>
+        <nav class="home-nav-wrap" aria-label="主選單">
+          <ul class="home-nav home-nav--side">
+            <li><button type="button" data-goto="1">小鎮居民</button></li>
+            <li><button type="button" data-goto="2">角色介紹</button></li>
+            <li><button type="button" data-goto="9">世界觀</button></li>
+          </ul>
+          <span class="home-nav-flower" id="btnHomeAuthor" role="button" tabindex="0" aria-label="作者資訊，往下滑動" aria-controls="homeAuthor" aria-expanded="false">
+            <span class="home-nav-flower-glyph deco-flower" aria-hidden="true"></span>
+          </span>
+          <ul class="home-nav home-nav--side">
+            <li><button type="button" data-goto="10">日暮茶行</button></li>
+            <li><button type="button" data-goto="11">無名花園</button></li>
+            <li><button type="button" data-goto="12">藏書庫</button></li>
+          </ul>
+        </nav>
+        <p class="home-hint-row" aria-hidden="true">
+          <span class="scroll-hint">↓ 往下滑閱讀</span><span class="home-hint-sep">｜</span><span class="home-hint">→ 或使用方向鍵翻頁</span>
+        </p>
+      </div>
+      <div class="home-author-panel page-body-articles" id="homeAuthor">
+        <section class="home-author-section" aria-labelledby="homeAuthorTitle">
+          <h3 id="homeAuthorTitle"><span class="sub-mark"><span class="sub-mark-text">作者資訊</span></span></h3>
+          <p class="home-author-placeholder">文案待補，之後會更新於此。</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 1 居民 -->
+  <section class="slide slide-page slide-hero" data-slide="1">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">小鎮居民</span></span></h2>
+        </div>
+        <p class="page-sub">小鎮的居民</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-articles">
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">居民的出生</span></span></h3>
+          <p>小鎮的居民是由昕所創造，他們是昕的性格、情緒、才能、記憶與各種「可能性」延伸而出的生命。有些居民繼承了較多的快樂，因此性格開朗；有些居民則繼承了較多的焦慮與悲傷，因此更容易陷入情緒不穩定。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">獨立的生命</span></span></h3>
+          <p>某些居民會特別擅長烹飪、園藝、哲學或創作，這些才能本質上也來自昕的一部分。然而，居民並不是昕的分身——在誕生之後，他們會逐漸成長、產生新的經歷與情感，最終成為真正獨立的人們。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">平均年齡</span></span></h3>
+          <p>小鎮居民平均年齡 180～200 歲，去世的人們會到小鎮的公墓埋葬。他們並沒有特別舉行葬禮，但會定期回到墓園探望對方，並獻上無名花。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">居民的生活</span></span></h3>
+          <p>小鎮人民每幾年會誕生五名，不論出生還是老年，都維持 20 歲的姿態。新人口會自然地融入小鎮，一出生就有自己的家與常識，因此小鎮並沒有學校，人們都是自發性地學習、做自己喜歡的事。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">醫療資源</span></span></h3>
+          <p>小鎮唯一的醫療資源只有日暮茶行。情緒較不穩的居民，昕會安排他們住在市區，可以時常到茶行用餐；偏鄉居民雖情緒穩定，但仍有生病的可能，因此茶行員工也提供外送服務。</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 3 昕 -->
+  <section class="slide slide-page slide-hero slide-id-page" data-slide="2">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">昕</span></span></h2>
+        </div>
+        <p class="page-sub">鎮民身分證</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-id">
+        <section class="id-card-wrap id-card-page">
+          <div class="id-card">
+            <img class="id-card-tile-deco" src="assets/flower-tile.png" alt="" aria-hidden="true" width="4090" height="2297" decoding="async">
+            <div class="id-card-sheet">
+              <div class="id-card-visual">
+                <img src="assets/xin-portrait.png?v=1" alt="昕" class="id-card-portrait" decoding="async">
+              </div>
+              <div class="id-card-divider" aria-hidden="true"></div>
+              <div class="id-card-main id-card-main--has-chibi">
+                <figure class="id-card-chibi" aria-hidden="true">
+                  <img class="id-card-chibi-img" src="assets/xin-chibi.png?v=1" alt="" width="800" height="800" decoding="async">
+                </figure>
+                <div class="id-card-copy">
+                <h2 class="page-title id-card-title">
+                  <span class="id-card-title-gutter" aria-hidden="true">
+                    <span class="id-card-title-flower"></span>
+                  </span>
+                  <span class="id-card-title-text">
+                    <span class="mark"><span class="mark-text">鎮民身分證</span></span>
+                    <span class="id-card-title-flower" aria-hidden="true"></span>
+                  </span>
+                </h2>
+                <div class="id-card-text-block">
+                <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">昕</span></span></p>
+                <div class="id-card-details">
+                  <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：溴 Br<sub>2</sub></span></p>
+                  <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：9 / 18</span></p>
+                  <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">體重</span></span>：160 amu</span></p>
+                  <div class="id-card-detail id-card-detail--intro">
+                    <p class="id-card-field id-card-field--solo"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">簡介</span></span>：</span></p>
+                    <p class="id-card-field-body">記憶小鎮與所有人的創造者，擁有創造一切事物的能力，然而這項能力只有曚與暮知曉，昕也將這項能力嚴格隱瞞，目前在日暮茶行擔任老闆兼店長。</p>
+                  </div>
+                </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="page-body-articles">
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">習慣</span></span></h3>
+            <p>對鮮奶茶有異常執著，時常因畫圖、整理病歷而晚睡，作息不太規律，因此昕時常是茶行三人中，最晚到的人（常中午才到）。睡眠時間非常的長，約 8 至 12 小時，是很愛睡覺的人，尤其最喜歡在冬天睡覺。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">性格</span></span></h3>
+            <p>本身的個性是安靜內向，不是特別愛出風頭的類型，由於性格反骨，與其被管，更喜歡當暗地管理的人。長久的生命經驗與自身的創造能力，使他對意識空間的真實感有些抽離，會不自主地用上對下的語氣與方式對待他人，昕也正在改善這點。昕不太喜歡與人互動，即便長年的歲月讓他逐漸變得擅長談吐，但對他來說依然是吃力的。昕時常面帶微笑，看起來和善，但與慢熟的昕建立關係不是簡單的事情，即便他人認為已經和昕很熟了，但昕可能不這麼認為。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">昕視角的角色關係</span></span></h3>
+            <p>與曚和暮的是家人，與鈴、理、朶、霏是朋友，偏向老闆與員工的關係。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">能力</span></span></h3>
+            <p>是意識空間的主人，而擁有創造所有事物的能力。除此之外，昕也對繪畫創作特別有興趣，成為了他設計意識空間重要的契機。由於日暮茶行的開張，昕與曚在開張前 5 年，就預先規劃拿體術作為侵蝕者的自我防衛，並加入員工訓練範疇，因此昕也擅長自我防衛等技術。</p>
+            <p>作為溴原子，角色在受傷時是不會流血的，取而代之的是惡臭的液態溴。昕的溴會在空氣中快速蒸發，並發出暗紅的蒸氣與惡臭味；若液態溴或是氣態溴沾到物品或人的話，會出現極強的腐蝕性，因此除了鑽石，其他人都不可接觸受傷的昕。如此設計是為了禁止昕虛弱時被無關者靠近，以免他人得知昕的其他能力。安眠糖果的製作方式，也跟溴有些關聯；除了安眠外，昕有穩定火焰，甚至可以直接徒手熄火的被動能力，在沒有外傷的情況下，昕不會發出惡臭。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">介紹</span></span>：</h3>
+            <p>昕是意識空間的第一位居民，同時也是整個意識空間的主人，他擁有自由創造事物的能力，無論是建築、食物、植物，甚至是生命，都能依照自己的想法誕生於這個世界之中。</p>
+            <p>由於意識空間的時間流逝速度與現實世界不同，昕很快便意識到，自己的生命或許會接近永恆，漫長的歲月與造物主的身分，讓他開始擔心，自己總有一天會失去作為人原本的情感與道德觀，因此，昕創造了與自己擁有完全相同外貌與個性的複製體「曚」。曚的存在，最初的目的，是為了讓昕能夠在漫長的生命中，依然保有人性與自我，兩人擁有極高的默契與相似的性格，但因為經歷與選擇不同，也逐漸發展成不同的人，對昕而言，曚是世界上最理解自己的人。</p>
+            <p>之後，昕在意識空間年份：02年，創造了第三位居民「暮」。</p>
+            <p>暮與昕不同，他並不擁有直接創造事物的能力，但卻擁有極其驚人的創造力、思考能力與學習速度，暮透過世界原有的素材與現實知識，自行研究出大量技術與作品，包含繪畫、雕塑、建築設計、植物學、機械結構等等，甚至在許多領域超越了身為造物主的昕，昕也才在這時發現自己有這樣的面向，並很崇拜暮這個家人。</p>
+            <p>三人曾經一同居住在尚未建立城鎮的草原之中，度過了相當漫長的歲月，然而，隨著時間不斷流逝，暮開始對近乎永恆的生命產生痛苦，對暮而言，夢想與目標之所以珍貴，是因為人生有限，但在意識空間裡，幾乎所有事情都能被完成，甚至有無限的時間能夠繼續前進，當一切都能實現後，留下的卻只有更加龐大的空虛。</p>
+            <p>意識空間年份：180年，暮向昕提出了自己的最後一個目標，希望昕能夠親手結束自己的生命。</p>
+            <p>昕無法理解暮的想法，他認為意識空間已經是最接近理想的烏托邦，既然沒有疾病、沒有飢餓、沒有憂慮，甚至可以一直做喜歡的事，暮又為何想離開這個世界，暮突然從昕理想的模樣，變成昕意想不到且最不想成為的模樣。兩人因此爆發了極為嚴重的爭執，昕甚至差點使用能力竄改對方，但最終，昕仍然選擇尊重暮的意願，親手結束了暮漫長的生命。</p>
+            <p>暮死後，昕開始變得比過去更加低調，也不再輕易提及關於意識空間核心的事情，直到多年後，昕在整理暮遺物時，意外發現了大量未完成的城鎮藍圖與設計稿，那些原先只是暮隨手留下的塗鴉與構想，卻逐漸讓昕產生了新的念頭。</p>
+            <p>因暮的事件，成為了昕想了解真正的自己的契機，他反思著自己的「理想」的樣子與「真實」的樣子，究竟是什麼？以及他究竟還有多少自己無法接受的一面，他想了解想去嘗試接納，於是昕開始按照暮的設計，於其他區域建立新的聚落與街道，並將三人曾經生活過的草原保留下來，設立為如今的「無名花園」。</p>
+            <p>之後，記憶小鎮正式誕生，居民是由昕的性格、情緒、才能、記憶與各種「可能性」延伸而出的生命，創造目的，是昕為了了解自己所不知道的面向，為了能夠觀察居民、接觸他人，同時避免再次發生像暮一樣的事件，昕選擇隱藏自己作為造物主的身分，並對外宣稱自己僅是小鎮的創建參與者之一，而真正的設計者則是已經離世的暮，後來，昕在小鎮中央建立了「日暮茶行」表面上，它是一間提供茶飲與甜點的復古茶行，實際上，則是用來照顧情緒不穩定居民的診所與療養空間，對昕而言，茶行存在的意義，並不是消除情緒，而是讓人們能夠安全地與自己的情緒共處，並了解自我。</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 4 曚（版型同昕） -->
+  <section class="slide slide-page slide-hero slide-id-page" data-slide="3">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">曚</span></span></h2>
+        </div>
+        <p class="page-sub">鎮民身分證</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-id">
+        <section class="id-card-wrap id-card-page">
+          <div class="id-card">
+            <img class="id-card-tile-deco" src="assets/flower-tile.png" alt="" aria-hidden="true" width="4090" height="2297" decoding="async">
+            <div class="id-card-sheet">
+              <div class="id-card-visual">
+                <img src="assets/mang-portrait.png?v=1" alt="曚" class="id-card-portrait" decoding="async">
+              </div>
+              <div class="id-card-divider" aria-hidden="true"></div>
+              <div class="id-card-main id-card-main--has-chibi">
+                <figure class="id-card-chibi" aria-hidden="true">
+                  <img class="id-card-chibi-img" src="assets/mang-chibi.png?v=1" alt="" width="800" height="800" decoding="async">
+                </figure>
+                <div class="id-card-copy">
+                  <h2 class="page-title id-card-title">
+                    <span class="id-card-title-gutter" aria-hidden="true">
+                      <span class="id-card-title-flower"></span>
+                    </span>
+                    <span class="id-card-title-text">
+                      <span class="mark"><span class="mark-text">鎮民身分證</span></span>
+                      <span class="id-card-title-flower" aria-hidden="true"></span>
+                    </span>
+                  </h2>
+                  <div class="id-card-text-block">
+                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">曚</span></span></p>
+                    <div class="id-card-details">
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">年齡</span></span>：216 歲</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：碳 C（鑽石結構）</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">體重</span></span>：12 amu</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">職業</span></span>：日暮茶行茶師、畫家</span></p>
+                      <div class="id-card-detail id-card-detail--intro">
+                        <p class="id-card-field id-card-field--solo"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">簡介</span></span>：</span></p>
+                        <p class="id-card-field-body">日暮茶行的副店長，曚是昕的複製體，兩人的個性與長相一模一樣，但互相經歷的事不同，是昕想維持「自我」而創造的人，與昕關係很好。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="page-body-articles">
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">習慣</span></span></h3>
+            <p>對鮮奶茶也有異常執著，日常喜好是畫圖，有兼職畫家的職業，作息不太規律，但因工作要求，還是會準時上班，睡眠時間跟昕一樣非常的長，約 8 至 12 小時，是很愛睡覺的人，尤其最喜歡在冬天睡覺。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">性格</span></span></h3>
+            <p>本身的個性是安靜內向，不是特別愛出風頭的類型，喜歡當管理層的人，曚不太喜歡與人互動，即便長年的歲月讓他逐漸變得擅長談吐，但對他來說依然是吃力的，但曚喜歡與朋友相處，時常與鈴跟朶待在一起，在這個時候曚總是特別放開，與昕待在一起反而不那麼放得開。</p>
+            <p>曚非常不太喜歡碰到油脂類，因此大多料理或是甜點都由鈴或是昕製作。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">曚視角的角色關係</span></span></h3>
+            <p>與昕和暮是家人，與鈴、朶是超級好朋友，對霏帶有好奇但不太熟，不太熟理但知道昕與理有聯繫。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">能力</span></span></h3>
+            <p>是茶行的茶師，專門使用茶行的茶葉，搭配一些藥草進行製藥，通常茶行的茶都是由曚親手泡的，昕每天也會請曚泡一杯鮮奶茶，在小鎮是小有知名的小畫家，時不時會替他人繪製圖畫。</p>
+            <p>曚與昕在開張前 5 年，就預先規劃拿體術作為侵蝕者的自我防衛，並加入員工訓練範疇，因此曚也擅長自我防衛等技術，並且也是主要教導鈴體術的人。</p>
+            <p>作為鑽石，角色在受傷時是不會流血的，取而代之的是尖銳的鑽石碎片，曚在受傷時，傷口會因不規則的切面，而變得極其尖銳，同時意外可用於自保。</p>
+            <p>曚的聽力異常的好，特別容易聽到細微的聲音，且他的手時常是冰冷的，因鑽石強力的導熱能力，使他能夠自由的傳遞熱能，這在泡茶時特別方便。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">介紹</span></span></h3>
+            <p>曚是意識空間的第二位居民，同時也是昕為了維持自身人性而創造出的複製體。他擁有與昕完全相同的外貌與基礎性格，但因為所經歷的事情不完全相同，而逐漸發展出獨立於昕之外的自我。</p>
+            <p>曚與昕兩人之間擁有極高的默契與理解力，許多時候甚至不需要言語就能理解彼此的想法，在意識空間早期，與昕一同居住在尚未建立城鎮的大草原之中，與第三位居民「暮」共同生活了相當長的一段時間。</p>
+            <p>在與暮的相處中，曚見證了暮驚人的創造力與思維能力，在昕與暮的爭執事件中，曚一直處於卡在中間的中立派，他明白暮的想法，但又理解昕不想失去暮的痛苦，深怕爭執的曚，在兩人爭吵時只敢在自己的房間待著，他不敢說話，也不知道這種時候該說甚麼話。</p>
+            <p>意識空間年份：180 年，暮死亡後，曚同樣身處於那場長時間的對立與壓抑之中，同時他一瞬間失去了一起生活 180 年的親人，曚與昕都非常難過，曚也在後悔著，如果當時自己不那麼逃避的話，也許當時多說點甚麼的話，結局會不會不一樣，就算暮一樣會逝世，但也許會有更完美的結局也說不定？如果當時和昕多聊聊，不那麼恐懼的話，也許昕就不那麼難過了也說不定？如果暮當時跟他見最後一面時，曚說出真心話自己就不那麼後悔了也說不定？曚後悔著，同時他對暮與自己感到失望，他同樣難以接受自己的懦弱，他無法理解，也不知道這種膽怯從何而來，這件事情讓曚卡了很久，而爆發了後續的後悔事件（因為曚沒有像昕一樣完整的走過一遍心路歷程，所以曚會比昕更無法接受自己的不完美與居民的不完美）</p>
+            <p>暮離開之後，曚與昕一同離開草原，並見證昕開始整理暮遺留下來的設計與藍圖，隨著時間推進，曚參與了記憶小鎮的初期建設。在記憶小鎮正式成立後，曚成為日暮茶行的主要茶師，同時負責部分居民的情緒照護與基礎治療，他擅長使用茶葉與藥草調配出不同效果的飲品，使居民的情緒得以穩定，但並不會直接消除情緒本身。</p>
+            <p>曚同時也兼任畫家，會在空閒時間進行創作與繪畫，僅此是因為這是他的興趣，且讓他開心，他的作品風格偏向可愛又柔軟，如同他自身給人的印象一般。</p>
+            <p>隨著時間推移，曚逐漸成為記憶小鎮中最穩定的日常存在之一，持續理解世界、理解他人，也理解自己，在這段間，曚認識了鈴與朶，三人的感情非常的好，時常一起出門、做料理，也常常一起通電話。</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 5 暮（版型同昕） -->
+  <section class="slide slide-page slide-hero slide-id-page" data-slide="4">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">暮</span></span></h2>
+        </div>
+        <p class="page-sub">已故</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-id">
+        <section class="id-card-wrap id-card-page">
+          <div class="id-card">
+            <img class="id-card-tile-deco" src="assets/flower-tile.png" alt="" aria-hidden="true" width="4090" height="2297" decoding="async">
+            <div class="id-card-sheet id-card-sheet--deceased">
+              <div class="id-card-visual">
+                <img src="assets/mu-portrait.png?v=1" alt="暮" class="id-card-portrait" decoding="async">
+              </div>
+              <div class="id-card-divider" aria-hidden="true"></div>
+              <div class="id-card-main id-card-main--has-chibi">
+                <figure class="id-card-chibi" aria-hidden="true">
+                  <img class="id-card-chibi-img" src="assets/mu-chibi.png?v=1" alt="" width="800" height="800" decoding="async">
+                </figure>
+                <div class="id-card-copy">
+                  <h2 class="page-title id-card-title">
+                    <span class="id-card-title-gutter" aria-hidden="true">
+                      <span class="id-card-title-flower"></span>
+                    </span>
+                    <span class="id-card-title-text">
+                      <span class="mark"><span class="mark-text">鎮民身分證</span></span>
+                      <span class="id-card-title-flower" aria-hidden="true"></span>
+                    </span>
+                  </h2>
+                  <div class="id-card-text-block">
+                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">暮</span></span></p>
+                    <div class="id-card-details">
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">年齡</span></span>：180 歲（已故）</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：氧化釹 Nd<sub>2</sub>O<sub>3</sub></span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">體重</span></span>：336 amu</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">職業</span></span>：無</span></p>
+                      <div class="id-card-detail id-card-detail--intro">
+                        <p class="id-card-field id-card-field--solo"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">簡介</span></span>：</span></p>
+                        <p class="id-card-field-body">與昕和曚關係很好，是一名比昕更有創造力的天才，即便沒有如同昕，有創造一切事物的超能力，但擁有手作與天才般的計算能力，是小鎮的主要發想人。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="page-body-articles">
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">習慣</span></span></h3>
+            <p>十分的宅，喜歡待在花園或房間畫圖，興趣非常多，學習能力很強，時常設計與創作各種新東西，如建築設計、藝術（雕塑、油畫）、化學，且數學計算能力非常好，同時對花草植物有異常的執著，很喜歡一種昕隨意創造給他的花，是一朵沒有名字的四瓣花，並自己取名為「無名花」，暮特別喜歡做一些實驗研究，在建築上、化學或是植物學上，都撰寫了不少研究結果，時不時也會拿曚或是昕的頭髮，或是身上的組織做實驗，奇妙的是他不太擅長料理。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">性格</span></span></h3>
+            <p>個性算是外向，說話有些毒蛇直接，又愛開玩笑捉弄昕與曚，絕對不碰自己不喜歡的事物，時常沉浸在自己的世界中，與人相處時特別吵鬧。暮對於未來很有明確的規劃，且會迅速的達成自己想做的事情，雖然在時間管理上比昕還要散漫。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">暮視角的角色關係</span></span></h3>
+            <p>與昕和曚是家人。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">能力</span></span></h3>
+            <p>暮的實作與手作能力，完全不輸昕的創造能力，其中花園的溫室兼實驗室正是暮親手建造的（雖然有強迫昕跟曚配合他一起蓋），在三人生活的小屋外，暮還有蓋一個小屋，是用於他做畫與雕塑的地方，暮不太喜歡整理房間，在他的空間裡總是亂中有序的擺一堆東西，而且事情都做一半又跑去做另一件事。</p>
+            <p>作為氧化釹，角色在受傷時是不會流血的，取而代之的是散落一地的氧化釹粉末，暮除了天生腦子很好，還很有設計天賦外，他也對空氣中的溼度與空氣品質十分敏感，且可從身上吸收的二氧化碳分布到實驗物體上面，十分方便他做化學與植物學的相關研究。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">介紹</span></span></h3>
+            <p>暮是意識空間的第三位居民，由昕在意識空間年份：02 年所創造。與曚不同，暮並非昕的複製體，也不具備直接創造世界的能力，而是以自身極高的學習能力、創造力與實作能力，在既有的世界素材中發展出屬於自己的知識體系與創作方式。</p>
+            <p>在早期的草原時期，暮與昕、曚共同生活於尚未建立城鎮的區域，這段時間中，暮展現出驚人的天賦與行動力，他能夠快速將想法轉化為實體成果，無論是建築、雕塑、繪畫、植物培育或是化學研究，都能以極高效率完成。相較於昕的「創造一切」，暮更偏向於「理解並改造既有的一切」。</p>
+            <p>暮對植物，尤其是昕隨手創造出的四瓣無名花，產生了異常強烈的興趣。他不僅持續觀察與記錄其生長狀態，甚至將其視為研究核心之一，並將該花正式命名為「無名花」。在暮的概念中，無名花並非普通植物，而是一種具有象徵意義的存在。</p>
+            <p>隨著時間推移，暮的能力與知識不斷累積，他開始建立屬於自己的空間，包括溫室、實驗室以及獨立的創作小屋。在這些空間中，暮進行大量研究與創作，涵蓋建築設計、化學實驗、植物學觀察與藝術創作等領域，其成果甚至在某些方面超越了昕的預期。</p>
+            <p>然而，暮的性格與另外兩人截然不同，他外向、直接，帶有明顯的戲謔與玩笑傾向，說話風格尖銳且不留情面，常以捉弄昕與曚為樂，同時，他對自己不感興趣的事物極為排斥，行動與選擇高度依賴自身興趣驅動，因此生活節奏常呈現高度跳躍性與不穩定性。</p>
+            <p>儘管如此，暮在行動上極具效率與決斷力，能迅速完成目標規劃與實踐。他對未來有明確想像，作為天才的他，可以在短時間內完成許多自己想做的事情，甚至在許多領域不斷突破自身極限。然而，這種「不斷完成」的狀態，也逐漸在他心中累積出對「無限」的疲乏。</p>
+            <p>隨著時間推移，暮開始對永恆的生命產生質疑。對他而言，目標之所以有意義，是因為存在終點；但在意識空間中，幾乎所有事情都可以被完成，而時間又近乎無限，這使得每一次達成目標之後，留下的不是滿足，而是更深的空白與疲憊。這份無止盡的空虛逐漸轉化為痛苦，使暮開始認為，生命應該存在一個「結束」，而死亡正是他所尋找的最後一個目標。</p>
+            <p>於是，他向昕提出，希望由昕親手結束自己的生命，昕無法理解這個請求。他認為既然這個世界已經沒有飢餓、疾病與真正的苦難，那麼「離開」本身便失去了意義。兩人因此爆發激烈爭執，從理念一路延伸到存在本身的否定與理解差異，這場僵持持續了近一年之久。</p>
+            <p>在這段期間，三人的關係逐漸變得沉重而緊繃。暮的狀態也因長期情緒壓力而出現變化，他的髮色逐漸偏向帶有冷色調的藍色，如同環境濕度改變時留下的痕跡一般，象徵他逐漸失衡的內在狀態。</p>
+            <p>最終，昕在漫長的掙扎後選擇妥協，理解並尊重暮的意願，與他達成共識，親手結束了暮的生命，在最後的時光中，三人度過了相對平靜的一段對話時間，沒有爭執，只有整理與告別，暮也在離開前前往見了曚最後一面，並以平常的語氣與他交談，最終，暮是在帶著笑意的狀態下離開這個世界的。</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 6 鈴（版型同昕） -->
+  <section class="slide slide-page slide-hero slide-id-page" data-slide="5">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">鈴</span></span></h2>
+        </div>
+        <p class="page-sub">鎮民身分證</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-id">
+        <section class="id-card-wrap id-card-page">
+          <div class="id-card">
+            <img class="id-card-tile-deco" src="assets/flower-tile.png" alt="" aria-hidden="true" width="4090" height="2297" decoding="async">
+            <div class="id-card-sheet">
+              <div class="id-card-visual">
+                <img src="assets/ling-portrait.png?v=1" alt="鈴" class="id-card-portrait" decoding="async">
+              </div>
+              <div class="id-card-divider" aria-hidden="true"></div>
+              <div class="id-card-main id-card-main--has-chibi">
+                <figure class="id-card-chibi" aria-hidden="true">
+                  <img class="id-card-chibi-img" src="assets/ling-chibi.png?v=1" alt="" width="800" height="800" decoding="async">
+                </figure>
+                <div class="id-card-copy">
+                  <h2 class="page-title id-card-title">
+                    <span class="id-card-title-gutter" aria-hidden="true">
+                      <span class="id-card-title-flower"></span>
+                    </span>
+                    <span class="id-card-title-text">
+                      <span class="mark"><span class="mark-text">鎮民身分證</span></span>
+                      <span class="id-card-title-flower" aria-hidden="true"></span>
+                    </span>
+                  </h2>
+                  <div class="id-card-text-block">
+                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">鈴</span></span></p>
+                    <div class="id-card-details">
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">年齡</span></span>：24 歲</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：金 Au</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">體重</span></span>：197 amu</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">職業</span></span>：日暮茶行甜點師（藥師）</span></p>
+                      <div class="id-card-detail id-card-detail--intro">
+                        <p class="id-card-field id-card-field--solo"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">簡介</span></span>：</span></p>
+                        <p class="id-card-field-body">日暮茶行的員工，跟曚和朶是超級好朋友，超喜歡研發新甜點與茶品，尤其喜歡吃檸檬蛋糕，常常與曚和朶出去採買食材，有點戀愛腦但一直沒交伴侶。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="page-body-articles">
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">習慣</span></span></h3>
+            <p>超級喜歡製作甜點，與研發新品，是日暮茶行的首席甜點師兼藥師，時常製作新的口味給其他成員試吃，而自己最喜歡檸檬蛋糕，但偶爾會有出包的時候。鈴很愛出去玩，通常有局 99% 是鈴約的。平時喜歡出去運動打球，雖然會打籃球，但最喜歡的還是羽球。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">性格</span></span></h3>
+            <p>個性外向，善解人意，特別愛與人聊天與認識他人，通常都是鈴帶著曚一起與客人聊天，在聊天時常常是鈴在滔滔不絕，曚負責聆聽與情緒價值。</p>
+            <p>鈴的個性認真，比昕跟曚有時間觀念多了，通常是第一個到茶行的人。雖是如此但鈴有些少根筋，時常忘東忘西。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">鈴視角的角色關係</span></span></h3>
+            <p>與昕是好朋友，和曚跟朶是超級好朋友，與霏跟理是朋友。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">能力</span></span></h3>
+            <p>除了烘焙能力與研發新品的能力外，鈴特別擅長瞄準，他喜歡玩夜市的射氣球，且很擅長投籃運動，因鈴的喜好緣故，在茶行裡鈴擁有一把專屬的橡膠槍，用於侵蝕者出現時緊急防身，鈴雖然擅長運動，但不太擅長近戰，因此大多時候他都負責遠程射擊。</p>
+            <p>鈴很擅長製作藥物，藥草的整理與採買都是由鈴一手包辦，同時每當有患者出現時，鈴都能精準地分配甜點給他們。</p>
+            <p>身為黃金，鈴因強力的延展性，使他不太容易受外傷，鈴的體溫比其他人都還要高，且在冬天時特別不怕熱，因此他的手，成為了所有人的取暖的工具。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">介紹</span></span></h3>
+            <p>鈴是由昕在意識空間年份：194 年時所創造。在十歲時因自身興趣，時常進出日暮茶行，曚也是在那時注意到鈴的存在，兩人相識後一見如故，鈴也在過程中找到自己的興趣，並與曚一起詢問昕是否能加入茶行，昕答應了請求，但讓曚自己幫鈴員工訓練，以及製作茶與藥草。</p>
+            <p>日暮茶行剛成立時是沒有甜點的，只有提供特有的藥草茶，直到鈴的加入，才加入甜點的選項，除了鈴的創意，鈴帶來的活力與熱情，為這間茶行添加了許多色彩。</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 7 朶（版型同昕） -->
+  <section class="slide slide-page slide-hero slide-id-page" data-slide="6">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">朶</span></span></h2>
+        </div>
+        <p class="page-sub">鎮民身分證</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-id">
+        <section class="id-card-wrap id-card-page">
+          <div class="id-card">
+            <img class="id-card-tile-deco" src="assets/flower-tile.png" alt="" aria-hidden="true" width="4090" height="2297" decoding="async">
+            <div class="id-card-sheet">
+              <div class="id-card-visual">
+                <img src="assets/duo-portrait.png?v=1" alt="朶" class="id-card-portrait" decoding="async">
+              </div>
+              <div class="id-card-divider" aria-hidden="true"></div>
+              <div class="id-card-main">
+                <div class="id-card-copy">
+                  <h2 class="page-title id-card-title">
+                    <span class="id-card-title-gutter" aria-hidden="true">
+                      <span class="id-card-title-flower"></span>
+                    </span>
+                    <span class="id-card-title-text">
+                      <span class="mark"><span class="mark-text">鎮民身分證</span></span>
+                      <span class="id-card-title-flower" aria-hidden="true"></span>
+                    </span>
+                  </h2>
+                  <div class="id-card-text-block">
+                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">朶</span></span></p>
+                    <div class="id-card-details">
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：綠簾石</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：待補</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">體重</span></span>：483 amu</span></p>
+                      <div class="id-card-detail id-card-detail--intro">
+                        <p class="id-card-field id-card-field--solo"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">簡介</span></span>：</span></p>
+                        <p class="id-card-field-body">無名花園管理員與植物學家，代理保管暮曾照顧的花園。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="page-body-articles">
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">習慣</span></span></h3>
+            <p>熱愛植物，住在花園森林深處；約凌晨四點醒，睡 4～6 小時；喜歡在霏睡覺的地方澆花。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">性格</span></span></h3>
+            <p>外向、極度天然呆，易被開玩笑；心思細膩，能完善照顧整座花園。對霏又愛又恨。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">能力</span></span></h3>
+            <p>照顧植物的天賦；負責植物孕育與環境維護，連街上花草也有朶的照料。睡眠短，常清晨巡邏森林。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">介紹</span></span></h3>
+            <p>192 年誕生，代理保管暮曾照顧的無名花園。持有通行證發放權，深入研究暮的研究報告。與昕是朋友，與曚、鈴是超級好朋友，與理是朋友。</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 8 理（版型同昕） -->
+  <section class="slide slide-page slide-hero slide-id-page" data-slide="7">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">理</span></span></h2>
+        </div>
+        <p class="page-sub">鎮民身分證</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-id">
+        <section class="id-card-wrap id-card-page">
+          <div class="id-card">
+            <img class="id-card-tile-deco" src="assets/flower-tile.png" alt="" aria-hidden="true" width="4090" height="2297" decoding="async">
+            <div class="id-card-sheet">
+              <div class="id-card-visual">
+                <img src="assets/li-portrait.png?v=1" alt="理" class="id-card-portrait" decoding="async">
+              </div>
+              <div class="id-card-divider" aria-hidden="true"></div>
+              <div class="id-card-main">
+                <div class="id-card-copy">
+                  <h2 class="page-title id-card-title">
+                    <span class="id-card-title-gutter" aria-hidden="true">
+                      <span class="id-card-title-flower"></span>
+                    </span>
+                    <span class="id-card-title-text">
+                      <span class="mark"><span class="mark-text">鎮民身分證</span></span>
+                      <span class="id-card-title-flower" aria-hidden="true"></span>
+                    </span>
+                  </h2>
+                  <div class="id-card-text-block">
+                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">理</span></span></p>
+                    <div class="id-card-details">
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：待補</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：待補</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">體重</span></span>：待補</span></p>
+                      <div class="id-card-detail id-card-detail--intro">
+                        <p class="id-card-field id-card-field--solo"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">簡介</span></span>：</span></p>
+                        <p class="id-card-field-body">藏書庫管理員，194 年誕生；除昕外唯一持通行證者。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="page-body-articles">
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">職責</span></span></h3>
+            <p>管理圖書館深處不對外開放的藏書庫，協助部分圖書館行政。除昕外唯一持通行證者。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">工作區</span></span></h3>
+            <p>二樓為主要常駐區，可閱覽意識空間知識、暮論文與歷史。一樓長期上鎖，僅必要時維護，部分資料連理也無法閱讀。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">介紹</span></span></h3>
+            <p>看守記憶小鎮與意識空間的核心資料，以免一般民眾誤闖。與昕有聯繫，是鎮上少數知悉部分真相的人之一。</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 9 霏（版型同昕） -->
+  <section class="slide slide-page slide-hero slide-id-page" data-slide="8">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">霏</span></span></h2>
+        </div>
+        <p class="page-sub">鎮民身分證</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-id">
+        <section class="id-card-wrap id-card-page">
+          <div class="id-card">
+            <img class="id-card-tile-deco" src="assets/flower-tile.png" alt="" aria-hidden="true" width="4090" height="2297" decoding="async">
+            <div class="id-card-sheet">
+              <div class="id-card-visual">
+                <img src="assets/fei-portrait.png?v=1" alt="霏" class="id-card-portrait" decoding="async">
+              </div>
+              <div class="id-card-divider" aria-hidden="true"></div>
+              <div class="id-card-main">
+                <div class="id-card-copy">
+                  <h2 class="page-title id-card-title">
+                    <span class="id-card-title-gutter" aria-hidden="true">
+                      <span class="id-card-title-flower"></span>
+                    </span>
+                    <span class="id-card-title-text">
+                      <span class="mark"><span class="mark-text">鎮民身分證</span></span>
+                      <span class="id-card-title-flower" aria-hidden="true"></span>
+                    </span>
+                  </h2>
+                  <div class="id-card-text-block">
+                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">霏</span></span></p>
+                    <div class="id-card-details">
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：待補</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：待補</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">體重</span></span>：待補</span></p>
+                      <div class="id-card-detail id-card-detail--intro">
+                        <p class="id-card-field id-card-field--solo"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">簡介</span></span>：</span></p>
+                        <p class="id-card-field-body">194 年誕生的小鎮居民，與理同年誕生。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="page-body-articles">
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">人際</span></span></h3>
+            <p>與鈴、理是朋友。朶對霏又愛又恨——常在他睡覺的地方澆花。曚對霏帶有好奇但不太熟。</p>
+          </section>
+          <section>
+            <h3><span class="sub-mark"><span class="sub-mark-text">介紹</span></span></h3>
+            <p>194 年與理一同誕生的小鎮居民。作為昕創造的生命之一，繼承了創造者某種特質與可能性，在記憶小鎮的日常中擁有自己的生活軌跡。</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 9 世界觀（含原小鎮概況） -->
+  <section class="slide slide-page slide-hero" data-slide="9">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">世界觀</span></span></h2>
+        </div>
+        <p class="page-sub">記憶小鎮 · 檔案</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-articles">
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">關於記憶小鎮</span></span></h3>
+          <p>這是一個由「記憶」與「意識」創建出來的世界，是由現實中某一個人的腦子裡，創造出來的烏托邦，烏托邦的主人「昕」能夠在自己的意識空間裡，自由創造自己想要的事物，包括建築、食物甚至是生命，記憶小鎮便是由昕本人親手創造的一座理想城鎮。</p>
+          <p>小鎮容貌是由昕記憶中的樣子所設計的，裡頭有很多關於台灣宜蘭的街景與景點，且布滿了，城鎮設計者「暮」最喜歡的無名花的影子。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">關於年份</span></span>（今年 216 年）</h3>
+          <p class="timeline-label">小鎮創立前</p>
+          <div class="timeline-rail">
+            <p class="timeline-rail-item"><strong>000 年</strong> — 昕的誕生</p>
+            <span class="timeline-rail-sep" aria-hidden="true"></span>
+            <p class="timeline-rail-item"><strong>001 年</strong> — 曚的誕生</p>
+            <span class="timeline-rail-sep" aria-hidden="true"></span>
+            <p class="timeline-rail-item"><strong>002 年</strong> — 暮的誕生</p>
+            <span class="timeline-rail-sep" aria-hidden="true"></span>
+            <p class="timeline-rail-item"><strong>182 年</strong> — 暮的逝世</p>
+            <span class="timeline-rail-sep" aria-hidden="true"></span>
+            <p class="timeline-rail-item"><strong>192 年</strong> — 記憶小鎮創建，朶與鈴的誕生</p>
+            <span class="timeline-rail-sep" aria-hidden="true"></span>
+            <p class="timeline-rail-item"><strong>194 年</strong> — 理與霏的誕生</p>
+            <span class="timeline-rail-sep" aria-hidden="true"></span>
+            <p class="timeline-rail-item"><strong>216 年</strong> — 今年</p>
+          </div>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">小鎮季節</span></span></h3>
+          <p>小鎮的夜晚時間比較長，約下午 16：00 會開始黃昏至 6：00 日出。一年有四季，但氣溫被昕控制在 25 度至零下 3 度左右，是昕喜歡的氣溫，並且下雨機率全年約 10% 左右，是一個不常下雨的地方。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">小鎮的交通</span></span></h3>
+          <p>小鎮大多是走路移動，其次是摩托車、汽車與公車，有火車站可以相通到鎮裡的偏鄉地區，同時也可以搭火車到湖邊觀光，湖邊有捕魚船，是小鎮漁業發達的地方。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">小鎮的名產與觀光</span></span></h3>
+          <p>小鎮特別有名的特產是鮮奶茶，並以蜜香紅茶為出名，同時蔥油餅、花生捲冰淇淋、糕渣，也是小鎮的有名小吃，通常會在夜市或是火車站、觀光區販賣。</p>
+          <p>記憶小鎮有不少觀光區，其中有名的有：無名花登山步道，小鎮東區的鄉間小道，紀念博物館，運動公園，運動公園市集、記憶夜市、無名湖畔等等……。而有些地方是小鎮重要的建築，並不是所有人都能進入：如藏書庫、無名花園、日暮茶行（是重要建築並非觀光區）。</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 10 日暮茶行 -->
+  <section class="slide slide-page slide-hero" data-slide="10">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">日暮茶行</span></span></h2>
+        </div>
+        <p class="page-sub">復古茶行 · 情緒的診所</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-articles">
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">關於日暮茶行</span></span></h3>
+          <p>是一間看起來十分舒適的復古茶行，裡頭可以喝茶、吃甜點、也可以坐一個下午，自己一人，或與朋友聊聊天，消磨時間。</p>
+          <p>日暮茶行目前有三名成員：老闆「昕」，二老闆兼茶師「曚」，以及甜點師「鈴」。</p>
+          <p>茶行的餐點，據說有治療的效果，因此有許多身心不穩定的居民會前來用餐，緩解自己的不適，並且茶行提供二樓的病床與休息室，表面上是一間茶行，實質上是一間診所，甚至是記憶小鎮最大的一間醫院。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">內部裝潢與風格</span></span></h3>
+          <p>日暮茶行採用台灣古早味的風格進行設計，有台灣特有的花窗、老式木製家具，以及台式的建築元素，帶有日式昭和氣息與歐式的美感，整體呈現溫暖與懷舊的生活感，員工制服也採用台灣特有的台灣衫作為設計基底，讓整間茶行散發出濃厚的台灣在地氛圍。</p>
+          <p>主要標誌為四瓣花，是昕隨記憶創造的一種花，這朵花沒有名字，被簡稱為「無名花」，其花窗與 Logo 標誌，都是由無名花為原形設計。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">茶與甜點</span></span></h3>
+          <p>日暮茶行的茶，皆選自台灣在地茶種，甜點則是透過藥草，與特殊技術製作出來的「藥品」，都會以「一杯茶 + 一份甜點」的套餐形式提供，雖說日暮茶行設有正式菜單，但實際上，店員會依照顧客當下的身心狀態與情緒需求，為對方選擇最適合的餐點。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">理念</span></span></h3>
+          <p>昕希望能夠透過茶行的存在，讓記憶小鎮的居民，能夠安全的與自己的情緒共處，茶與甜點的作用，是減緩身心不適的狀態，症狀本身沒有完全消除，顧客需要與自己的狀態找到一個平衡，在這個地方，顧客能夠與自己或他人對話，了解自己的狀況與應對方式，對昕而言，情緒是需要被正視，並理解、共處的。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">關於藥品的功效</span></span></h3>
+          <p>日暮茶行的甜點與茶，是一份安定居民的藥品，其原理為造物主昕的喜好與創造。</p>
+          <p>昕是一名極度喜愛喝茶的人，他創造了不同功效的藥草，與記憶中喜愛的茶飲，綜合在一起製作成甜點。每一個藥草都有昕賦予的功效，有的可以穩定悲傷，有的可以穩定憤怒，茶飲也會添加藥草成分，配合甜點一起服用。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">治療流程</span></span></h3>
+          <p><strong>第一層治療</strong></p>
+          <p>大多顧客的症狀，可以透過茶與甜點進行緩解，這部分會交給茶師與甜點師，曚與鈴進行製作與任務。前來的顧客他們稱之為「患者」，一旦出現症狀過於嚴重的患者，曚與鈴會盡量出更多劑量與濃度的甜點。嚴重的患者有可能出現攻擊傾向，日暮茶行的員工皆有受過嚴格的員工訓練，用於自保與壓制過於衝動的患者，通常動靜不會太大，員工會盡可能自然地阻擋患者的行為。</p>
+          <p><strong>第二層治療</strong></p>
+          <p>如患者症狀過於嚴重，可能會出現扭曲整個空間的症狀，像是製造幻象、更嚴重的攻擊傾向、與精神共享等等的危害，因茶行有特殊的外界阻隔，通常危害範圍僅會在日暮茶行內部，但為害會隨著時間越來越嚴重，並突破茶行，侵蝕整個小鎮，此時的患者需要盡早強制休眠，阻止危害增加。</p>
+          <p>嚴重患者會有另一個專屬名稱為「侵蝕者」，當店裡開始出現侵蝕者，昕會立刻出現，並盡速壓制侵蝕者，餵食安眠糖果，食用安眠糖果的侵蝕者，會瞬間進入睡眠，並送去二樓病床提供休息，曚與鈴需要照顧患者與撰寫病例。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">病例</span></span></h3>
+          <p>「患者」病例是以點餐的明細進行紀錄，而「侵蝕者」則是以紙本手抄紀錄。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">關於患者</span></span></h3>
+          <p>來日暮茶行的顧客，大部分是需要治療的患者。由於記憶小鎮的人民，是昕所創造的人，每一個居民都繼承了昕的某些特質與個性。</p>
+          <p>如：有些人特別喜愛哲學，而成為了哲學家；有些人特別開朗，因此特別活潑。而有些人被繼承的個性會比較極端：像是特別容易生氣，或是特別容易焦慮，因此他們會來到日暮茶行用餐，減緩不適。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">關於侵蝕者</span></span></h3>
+          <p>由於記憶小鎮的居民是意識空間的一部份，並與這個世界的主人「昕」互相關聯，一旦患者的情緒症狀過於嚴重，情緒會從個體內部溢出，進而影響外部空間與周圍居民，此現象被稱為「侵蝕」。</p>
+          <p><strong>初期</strong> — 患者開始出現情緒失衡，並伴隨攻擊傾向。攻擊行為會依情緒種類（如憤怒、悲傷、恐懼等）呈現不同形式。</p>
+          <p><strong>中期</strong> — 患者的情緒開始影響外部空間，造成環境扭曲與幻象出現，幻象內容通常與患者的情緒與記憶相關，並可能引發周圍居民產生相同的負面情緒共鳴。</p>
+          <p><strong>末期</strong> — 患者與其幻象均進入高度不穩定狀態，攻擊性顯著提升。此階段的幻象已由精神投射轉為具象化實體，開始對現實空間造成直接影響，同時，受影響的居民可能逐漸轉化為患者，甚至進一步成為侵蝕者。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">應對方式</span></span></h3>
+          <p>當確認出現侵蝕者時，日暮茶行將立即進入臨時停業狀態，封鎖出入口，以防止侵蝕擴散至外部區域。茶行內部的居民多已具備基礎應對知識，通常會在察覺異常時，自主離開一樓區域，或移動至二樓避難空間，並且茶行的桌子上也都放著：如遇到侵蝕者請至二樓避難的牌子。</p>
+          <p>同時，曚與鈴會負責現場安定與紀錄作業，而昕則在必要時介入進行壓制處理。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">其他</span></span></h3>
+          <p>日暮茶行的營業時間為：上午 10：00 至下午 6：00。僅提供內用，不可外帶。偏鄉地區有提供外送服務，需要撥打電話，日暮茶行會派員工送去。</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 11 無名花園 -->
+  <section class="slide slide-page slide-hero" data-slide="11">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">無名花園</span></span></h2>
+        </div>
+        <p class="page-sub">我們曾居住的花園</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-articles">
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">關於無名花園</span></span></h3>
+          <p>是一座在市區外，十分巨大的花園，這座花園布滿了四瓣無名花，據說是城鎮的設計者「暮」所喜愛一座花園，原先也是暮親手照顧的，但現在由小鎮居民「朶」代理保管，為了保護花園環境與維護，一般民眾無法自由進入花園，進入花園需要擁有朶親手賦予的通行證，進出都需要朶的陪同。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">理念</span></span></h3>
+          <p>此區域為城鎮設計者，暮曾經常駐的場所，昕為了保留暮的生活足跡，直接將整片草原規劃為保護園區，並將它設為無名花園，是一個昕、曚與暮三人的秘密基地。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">預約</span></span></h3>
+          <p>目前無名花園提供預約參觀制度，居民可透過申請方式進入部分開放區域，但由於花園位置偏遠，加上進入限制較多，因此平時前來參觀的人並不多，大部分時間裡，花園內只有朶一人負責照顧與維護。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">通行證</span></span></h3>
+          <p>預約與通行證並不相同，通行證是持在身上的一張證明，目前持有通行證的人只有昕與曚，一張上限可以帶五個同行人。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">花園內部</span></span></h3>
+          <p>花園內部印入眼簾都會是無名花海，若站在花園正門口會有一望無際的感受。往前走會看見正中間有一棟台式老建築，此建築看起來非常古老，約有 200 多年的歷史，是昕他們曾經居住的地方，參觀時只能遠觀，且僅會提及那是暮曾經居住的地方。</p>
+          <p>接著走建築的左側，會來到暮的培育室與溫室，植物都維持原本種植的順序，目前開放參觀。右側則是朶自己的溫室，朶在裡面自由地種植喜歡的植物以及布置。</p>
+          <p>更裡面走會來到野生森林，這裡也是花園的內部，裡面有森林環境才能培育的植物，為了防止迷路，森林只能參觀部分區域，朶的房子正是在那座森林裡。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">無名花</span></span></h3>
+          <p>花園種植著整個小鎮的代表物「無名花」是暮最喜歡的一種花，然而它的誕生十分平平無奇，甚至有些荒謬，這朵花僅是昕腦中記憶裡浮現，隨手創造的花罷了。</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 12 藏書庫 -->
+  <section class="slide slide-page slide-hero" data-slide="12">
+    <div class="page-scroll">
+      <div class="page-hero page-head">
+        <div class="page-title-stack">
+          <p class="deco-cross" aria-hidden="true">
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+            <span class="deco-flower"></span>
+          </p>
+          <h2 class="page-title"><span class="mark"><span class="mark-text">藏書庫</span></span></h2>
+        </div>
+        <p class="page-sub">圖書館深處的秘密區域</p>
+        <p class="scroll-hint" aria-hidden="true">↓ 往下滑閱讀</p>
+      </div>
+      <div class="page-body page-body-articles">
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">關於藏書庫</span></span></h3>
+          <p>藏書庫在小鎮的鎮立圖書館裡面，有一個區域完全不對外開放，那便是藏書庫。</p>
+          <p>圖書館管理員與藏書庫管理員為不同職位。一般圖書館管理員僅負責公開書籍與日常營運，無法進入藏書庫區域，目前藏書庫由居民「理」負責管理與整理，同時理也會協助圖書館的部分行政工作，目前能進入的人，除了昕和理擁有通行證，其他人都無法進入。</p>
+          <p>藏書庫內保存大量重要資料，包括：暮的手稿與設計草圖、小鎮早期建構紀錄、昕、曚與暮三人相關歷史資料、未公開的城鎮原始規劃文件。此外，部分區域的資料即使是管理者「理」也無法進入或閱讀。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">理念</span></span></h3>
+          <p>藏書庫專門紀載記憶小鎮與意識空間的歷史，以及昕與暮的資料，由於許多資料只有昕能查看，因此需要有人負責看守，以免有一般民眾誤闖。</p>
+        </section>
+        <section>
+          <h3><span class="sub-mark"><span class="sub-mark-text">藏書庫內部</span></span></h3>
+          <p>藏書庫有分一樓與二樓，二樓為理的主要工作與常駐區域。</p>
+          <p><strong>二樓</strong></p>
+          <p>此區域內的資料大多可由理自由閱覽，內容主要包含意識空間相關知識、歷史紀錄，以及暮所留下的研究成果與論文。此外，部分來自博物館的暮之手稿與作品，也會暫時存放於此，除了書籍之外，亦保存少量雕塑與圖畫等非文字類資料。</p>
+          <p><strong>一樓</strong></p>
+          <p>一樓長期處於上鎖狀態，即使理持有鑰匙，也極少進入，僅在必要時進行基本維護與清潔，該區域所有書籍皆設有密碼或封存機制，無法直接閱讀。</p>
+          <p>此區域主要保存內容包括：昕能力相關紀錄、意識空間起源資料、昕與暮的日記、暮對於昕與意識空間的研究報告、與意識空間核心相關之未公開文件。</p>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>
+
+<nav class="flower-nav" id="flowerNav" aria-label="頁面進度"></nav>
+
+<div class="deck-controls">
+  <button type="button" class="btn-arrow" id="btnPrev" aria-label="上一頁">‹</button>
+  <span class="slide-indicator" id="slideIndicator">1 / 14</span>
+  <button type="button" class="btn-arrow" id="btnNext" aria-label="下一頁">›</button>
+</div>
+
+<script src="js/deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# 靜態網站，無需編譯
+
+.DS_Store
+Thumbs.db
+*.log
