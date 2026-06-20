@@ -8,10 +8,8 @@
     --title-size: clamp(2rem, 9.5vw, 3.35rem);
     --home-cover-title-size: clamp(3.15rem, 17vw, 5rem);
     --mobile-chrome-text: #f2ebe0;
-    /* 統一左右留白：各機型相同，不再用 vw 造成寬度不同就偏不一樣 */
-    --mobile-inset: max(1.65rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
-    --paper-margin-x: var(--mobile-inset);
-    --mobile-content-x: 0px;
+    --paper-margin-x: 10px;
+    --mobile-content-x: 1.75rem;
     --mobile-body-size: clamp(0.84rem, 3.18vw, 0.925rem);
     --mobile-body-tracking: 0.06em;
     --mobile-section-title-size: clamp(0.98rem, 3.75vw, 1.1rem);
@@ -56,6 +54,18 @@
   html.is-mobile .slide::before,
   html.is-mobile .slide::after {
     height: var(--paper-h);
+  }
+
+  /*
+   * 滑動區用 left+right 定位時不可設 width:100%，
+   * 否則會以整屏寬度計算並再偏移 left，內容整塊被推到右邊。
+   */
+  .slide-home > .home-scroll,
+  .slide-page > .page-scroll {
+    width: auto !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   /* 手機不渲染堆疊紙，減輕 GPU 負擔 */
@@ -117,6 +127,12 @@
   .slide-home > .home-scroll,
   .page-scroll,
   .page-head {
+    box-sizing: border-box;
+  }
+
+  .page-scroll .page-head,
+  .page-scroll .page-hero,
+  .page-scroll .page-body {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -126,8 +142,6 @@
   .slide-home > .home-scroll,
   .slide-page > .page-scroll,
   .slide-page.slide-hero .page-scroll {
-    width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
@@ -162,7 +176,8 @@
   }
 
   .slide-page.slide-id-page .page-scroll {
-    max-width: 100% !important;
+    width: auto !important;
+    max-width: none !important;
   }
 
   .slide-page .page-head,
@@ -857,8 +872,8 @@
   }
 
   html.is-mobile .slide-page.slide-id-page .page-scroll {
-    max-width: 100% !important;
     width: auto !important;
+    max-width: none !important;
   }
 
   html.is-mobile .slide-id-page .id-card-copy {
