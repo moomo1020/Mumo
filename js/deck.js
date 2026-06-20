@@ -16,7 +16,7 @@
   let mobilePageSheetOpen = false;
   let chibiParallaxCleanup = null;
 
-  const MOBILE_TOC_HINT_KEY = 'mumo-mobile-flower-hint-v3';
+  const MOBILE_TOC_HINT_KEY = 'mumo-mobile-flower-hint-v4';
 
   const MOBILE_MQ = window.matchMedia('(max-width: 640px)');
 
@@ -37,8 +37,6 @@
       if (!isMobileMode()) {
         closeMobilePageSheet();
         dismissMobileFlowerHint(false);
-      } else if (!isMobileFlowerHintDismissed()) {
-        scheduleMobileFlowerHint();
       }
     }
   }
@@ -263,9 +261,7 @@
 
   function isMobileFlowerHintDismissed() {
     try {
-      if (localStorage.getItem(MOBILE_TOC_HINT_KEY) === '1') return true;
-      if (localStorage.getItem('mumo-mobile-flower-hint-v2') === '1') return true;
-      return false;
+      return localStorage.getItem(MOBILE_TOC_HINT_KEY) === '1';
     } catch (err) {
       return false;
     }
@@ -274,8 +270,7 @@
   function dismissMobileFlowerHint(persist) {
     var hint = document.getElementById('mobileFlowerHint');
     if (!hint) return;
-    hint.classList.remove('is-entering');
-    hint.hidden = true;
+    hint.classList.remove('is-visible', 'is-animating');
     if (persist) {
       try {
         localStorage.setItem(MOBILE_TOC_HINT_KEY, '1');
@@ -289,16 +284,28 @@
       dismissMobileFlowerHint(false);
       return;
     }
-    hint.hidden = false;
-    hint.classList.remove('is-entering');
+    if (hint.classList.contains('is-visible')) return;
+
+    window.clearTimeout(scheduleMobileFlowerHint._timer);
+    hint.classList.add('is-visible');
+    hint.classList.remove('is-animating');
     void hint.offsetWidth;
-    hint.classList.add('is-entering');
+    hint.classList.add('is-animating');
+
+    window.clearTimeout(showMobileFlowerHint._settleTimer);
+    showMobileFlowerHint._settleTimer = window.setTimeout(function () {
+      if (!hint || !hint.classList.contains('is-visible')) return;
+      hint.classList.remove('is-animating');
+    }, 780);
   }
 
   function scheduleMobileFlowerHint() {
-    if (!isMobileMode() || isMobileFlowerHintDismissed()) return;
+    if (!isMobileMode() || isMobileFlowerHintDismissed()) {
+      dismissMobileFlowerHint(false);
+      return;
+    }
     window.clearTimeout(scheduleMobileFlowerHint._timer);
-    scheduleMobileFlowerHint._timer = window.setTimeout(showMobileFlowerHint, 600);
+    scheduleMobileFlowerHint._timer = window.setTimeout(showMobileFlowerHint, 450);
   }
 
   function openMobileSheetAuthor() {
@@ -772,6 +779,13 @@
     if (!options.skipHeadAnim) {
       triggerHeadAnimations();
     }
+
+    if (isMobileMode() && !isMobileFlowerHintDismissed()) {
+      var hintEl = document.getElementById('mobileFlowerHint');
+      if (!hintEl || !hintEl.classList.contains('is-visible')) {
+        scheduleMobileFlowerHint();
+      }
+    }
   }
 
   function updateUI() {
@@ -951,9 +965,6 @@
   requestAnimationFrame(function () {
     requestAnimationFrame(function () {
       triggerHeadAnimations();
-      if (isMobileMode() && !isMobileFlowerHintDismissed()) {
-        scheduleMobileFlowerHint();
-      }
     });
   });
 })();

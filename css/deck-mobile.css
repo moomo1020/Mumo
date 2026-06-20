@@ -761,6 +761,16 @@
     background: transparent;
   }
 
+  #mobileFlowerChrome .flower-nav {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: auto;
+    width: 100%;
+    pointer-events: auto;
+  }
+
   .flower-nav--single {
     justify-content: center;
     overflow: visible;
@@ -1070,6 +1080,37 @@
   }
 
   /* —— 底部小花：目錄提示與換頁面板 —— */
+  html.is-mobile .mobile-flower-hint {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: calc(
+      var(--mobile-chrome-h) + 2.35rem + env(safe-area-inset-bottom, 0px)
+    );
+    z-index: 135;
+    display: none;
+    margin: 0;
+    padding: 0 0.75rem;
+    text-align: center;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: var(--ink);
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: none;
+    text-shadow: 0 0 0.35rem rgba(255, 252, 245, 0.85);
+  }
+
+  html.is-mobile .mobile-flower-hint.is-visible {
+    display: block;
+  }
+
+  html.is-mobile .mobile-flower-hint.is-visible.is-animating {
+    animation: mobile-flower-hint-rise 0.75s cubic-bezier(0.33, 0.85, 0.4, 1) forwards;
+  }
+
   .mobile-flower-chrome {
     position: fixed;
     left: 0;
@@ -1084,43 +1125,12 @@
   }
 
   .mobile-flower-chrome .flower-nav {
-    position: static;
-    left: auto;
-    right: auto;
-    bottom: auto;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
     width: 100%;
     pointer-events: auto;
-  }
-
-  .mobile-flower-hint {
-    display: block;
-    position: relative;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    z-index: 2;
-    margin: 0 0 0.55rem;
-    padding: 0 0.75rem;
-    text-align: center;
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.72rem;
-    letter-spacing: 0.28em;
-    color: var(--ink);
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: none;
-    text-shadow: 0 0 0.35rem rgba(255, 252, 245, 0.85);
-  }
-
-  .mobile-flower-hint[hidden] {
-    display: none !important;
-  }
-
-  .mobile-flower-hint.is-entering {
-    opacity: 0;
-    transform: translateY(0.65rem);
-    animation: mobile-flower-hint-rise 0.75s cubic-bezier(0.33, 0.85, 0.4, 1) forwards;
   }
 
   @keyframes mobile-flower-hint-rise {
@@ -1135,7 +1145,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .mobile-flower-hint.is-entering {
+    html.is-mobile .mobile-flower-hint.is-visible.is-animating {
       animation: none;
       opacity: 1;
       transform: none;
