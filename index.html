@@ -15,8 +15,8 @@
   });
 })();
 </script>
-<link rel="stylesheet" href="css/deck.css?v=28">
-<link rel="stylesheet" href="css/deck-mobile.css?v=28">
+<link rel="stylesheet" href="css/deck.css?v=37">
+<link rel="stylesheet" href="css/deck-mobile.css?v=37">
 </head>
 <body>
 
@@ -92,7 +92,20 @@
           </div>
           <ul class="home-toc-list">
             <li><button type="button" data-goto="1">小鎮居民</button></li>
-            <li><button type="button" data-goto="2">角色介紹</button></li>
+            <li class="home-toc-item home-toc-item--has-sub">
+              <button type="button" class="home-toc-expand-btn" aria-expanded="false" aria-controls="homeTocCharSub">
+                <span class="home-toc-expand-label">角色介紹</span>
+              </button>
+              <ul class="home-toc-sublist" id="homeTocCharSub">
+                <li><button type="button" data-goto="2">昕</button></li>
+                <li><button type="button" data-goto="3">曚</button></li>
+                <li><button type="button" data-goto="4">暮</button></li>
+                <li><button type="button" data-goto="5">鈴</button></li>
+                <li><button type="button" data-goto="6">朶</button></li>
+                <li><button type="button" data-goto="7">理</button></li>
+                <li><button type="button" data-goto="8">霏</button></li>
+              </ul>
+            </li>
             <li><button type="button" data-goto="9">世界觀</button></li>
             <li>
               <button type="button" class="home-toc-flower-btn" data-home-author="toc" aria-label="作者資訊，往下滑動">
@@ -984,8 +997,22 @@
         <span class="home-toc-divider-line" aria-hidden="true"></span>
       </div>
       <ul class="home-toc-list" id="mobilePageSheetList">
+        <li><button type="button" data-goto="0">首頁</button></li>
         <li><button type="button" data-goto="1">小鎮居民</button></li>
-        <li><button type="button" data-goto="2">角色介紹</button></li>
+        <li class="home-toc-item home-toc-item--has-sub">
+          <button type="button" class="home-toc-expand-btn" aria-expanded="false" aria-controls="mobileSheetCharSub">
+            <span class="home-toc-expand-label">角色介紹</span>
+          </button>
+          <ul class="home-toc-sublist" id="mobileSheetCharSub">
+            <li><button type="button" data-goto="2">昕</button></li>
+            <li><button type="button" data-goto="3">曚</button></li>
+            <li><button type="button" data-goto="4">暮</button></li>
+            <li><button type="button" data-goto="5">鈴</button></li>
+            <li><button type="button" data-goto="6">朶</button></li>
+            <li><button type="button" data-goto="7">理</button></li>
+            <li><button type="button" data-goto="8">霏</button></li>
+          </ul>
+        </li>
         <li><button type="button" data-goto="9">世界觀</button></li>
         <li>
           <button type="button" class="home-toc-flower-btn" data-mobile-sheet-author="toc" aria-label="作者資訊">
@@ -1006,6 +1033,6 @@
   <button type="button" class="btn-arrow" id="btnNext" aria-label="下一頁">›</button>
 </div>
 
-<script src="js/deck.js?v=28"></script>
+<script src="js/deck.js?v=37"></script>
 </body>
 </html>

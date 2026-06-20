@@ -315,6 +315,39 @@
     openHomeAuthor();
   }
 
+  function setTocCharacterMenuOpen(item, btn, open) {
+    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (item) item.classList.toggle('is-expanded', open);
+  }
+
+  function resetTocCharacterMenus() {
+    document.querySelectorAll('.home-toc-item--has-sub').forEach(function (item) {
+      var btn = item.querySelector('.home-toc-expand-btn');
+      setTocCharacterMenuOpen(item, btn, false);
+    });
+  }
+
+  function setupTocCharacterMenus() {
+    document.querySelectorAll('.home-toc-expand-btn').forEach(function (btn) {
+      if (btn.dataset.ready) return;
+      btn.dataset.ready = '1';
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var item = btn.closest('.home-toc-item--has-sub');
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+        var willOpen = !isOpen;
+        if (willOpen) {
+          document.querySelectorAll('.home-toc-item--has-sub.is-expanded').forEach(function (other) {
+            if (other === item) return;
+            setTocCharacterMenuOpen(other, other.querySelector('.home-toc-expand-btn'), false);
+          });
+        }
+        setTocCharacterMenuOpen(item, btn, willOpen);
+      });
+    });
+  }
+
   function closeMobilePageSheet() {
     var sheet = document.getElementById('mobilePageSheet');
     var panel = sheet && sheet.querySelector('.mobile-page-sheet-panel');
@@ -334,6 +367,7 @@
       sheet.hidden = true;
       sheet.classList.remove('is-closing');
       sheet.setAttribute('aria-hidden', 'true');
+      resetTocCharacterMenus();
       if (panel) panel.removeEventListener('transitionend', onTransitionEnd);
     }
 
@@ -595,10 +629,10 @@
   }
 
   var MOBILE_CHIBI_LAYOUT = {
-    '2': { top: 'clamp(2.35rem, 7vh, 3.35rem)', width: 'min(48vw, 11.5rem)', right: 'clamp(1.65rem, 8vw, 3rem)' },
-    '3': { top: 'clamp(4rem, 13vh, 5.5rem)', width: 'min(41vw, 10rem)', right: 'clamp(1.65rem, 7.5vw, 3rem)' },
-    '4': { top: 'clamp(3.35rem, 10.5vh, 4.75rem)', width: 'min(42vw, 10.25rem)', right: 'clamp(1.25rem, 7vw, 2.25rem)' },
-    '5': { top: 'clamp(3.35rem, 10vh, 4.75rem)', width: 'min(42vw, 10.25rem)', right: 'clamp(1.5rem, 7vw, 2.75rem)' },
+    '2': { top: 'clamp(0.95rem, 2.5vh, 1.85rem)', width: 'min(44vw, 10.5rem)', right: 'clamp(0.2rem, 2vw, 1.1rem)' },
+    '3': { top: 'clamp(2.45rem, 7vh, 3.85rem)', width: 'min(38vw, 9.25rem)', right: 'clamp(0.15rem, 1.5vw, 0.95rem)' },
+    '4': { top: 'clamp(1.85rem, 5.5vh, 3.1rem)', width: 'min(38vw, 9.5rem)', right: 'clamp(0.1rem, 1vw, 0.75rem)' },
+    '5': { top: 'clamp(1.85rem, 5vh, 3.1rem)', width: 'min(38vw, 9.5rem)', right: 'clamp(0.1rem, 1.5vw, 0.9rem)' },
   };
 
   function clearMobileChibiLayout(slide) {
@@ -1191,6 +1225,7 @@
   setupDeviceMode();
   setupDeckSwipe();
   setupMobilePageDirectory();
+  setupTocCharacterMenus();
   setupHomeAuthor();
   setupMouseParallax();
   updateSlideClasses();
