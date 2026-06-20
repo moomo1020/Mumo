@@ -25,6 +25,7 @@
     --id-card-label-size: var(--home-toc-item-size);
     --id-card-body-size: var(--home-toc-item-size);
     --id-card-chibi-gap: clamp(0.55rem, 1.5vh, 0.9rem);
+    --id-card-text-nudge-x: -0.5rem;
     --paper-margin-y: 6px;
     --paper-height-max: 0.88;
     --paper-h: calc((100dvh - var(--paper-margin-y) * 2) * var(--paper-height-max));
@@ -306,6 +307,7 @@
     align-items: center;
     width: 100%;
     max-width: 100%;
+    transform: translateX(var(--id-card-text-nudge-x));
   }
 
   .slide-id-page .id-card-title {
@@ -573,20 +575,40 @@
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transform: translateY(-0.55rem);
+    visibility: hidden;
     transition:
-      max-height 0.44s cubic-bezier(0.33, 0.85, 0.4, 1),
-      opacity 0.34s ease,
-      transform 0.4s cubic-bezier(0.33, 0.85, 0.4, 1),
-      padding 0.4s cubic-bezier(0.33, 0.85, 0.4, 1);
+      max-height 0.52s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.42s ease-in-out,
+      visibility 0s linear 0.42s;
   }
 
   .home-toc-item--has-sub.is-expanded > .home-toc-sublist {
     max-height: 22rem;
     opacity: 1;
-    transform: translateY(0);
+    visibility: visible;
     padding-bottom: 0.15rem;
+    transition:
+      max-height 0.56s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.48s ease-in-out 0.06s,
+      visibility 0s linear 0s;
   }
+
+  .home-toc-sublist li {
+    opacity: 0;
+    transition: opacity 0.38s ease-in-out;
+  }
+
+  .home-toc-item--has-sub.is-expanded .home-toc-sublist li {
+    opacity: 1;
+  }
+
+  .home-toc-item--has-sub.is-expanded .home-toc-sublist li:nth-child(1) { transition-delay: 0.05s; }
+  .home-toc-item--has-sub.is-expanded .home-toc-sublist li:nth-child(2) { transition-delay: 0.09s; }
+  .home-toc-item--has-sub.is-expanded .home-toc-sublist li:nth-child(3) { transition-delay: 0.13s; }
+  .home-toc-item--has-sub.is-expanded .home-toc-sublist li:nth-child(4) { transition-delay: 0.17s; }
+  .home-toc-item--has-sub.is-expanded .home-toc-sublist li:nth-child(5) { transition-delay: 0.21s; }
+  .home-toc-item--has-sub.is-expanded .home-toc-sublist li:nth-child(6) { transition-delay: 0.25s; }
+  .home-toc-item--has-sub.is-expanded .home-toc-sublist li:nth-child(7) { transition-delay: 0.29s; }
 
   .home-toc-sublist button {
     min-height: 2.45rem;
@@ -981,6 +1003,7 @@
     max-width: 100% !important;
     grid-template-columns: none !important;
     column-gap: 0 !important;
+    transform: translateX(var(--id-card-text-nudge-x)) !important;
   }
 
   html.is-mobile .slide-id-page .id-card-title {
