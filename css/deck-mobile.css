@@ -8,7 +8,10 @@
     --title-size: clamp(2rem, 9.5vw, 3.35rem);
     --home-cover-title-size: clamp(3.15rem, 17vw, 5rem);
     --mobile-chrome-text: #f2ebe0;
-    --mobile-content-x: clamp(1.75rem, 9vw, 2.65rem);
+    /* 統一左右留白：各機型相同，不再用 vw 造成寬度不同就偏不一樣 */
+    --mobile-inset: max(1.65rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+    --paper-margin-x: var(--mobile-inset);
+    --mobile-content-x: 0px;
     --mobile-body-size: clamp(0.84rem, 3.18vw, 0.925rem);
     --mobile-body-tracking: 0.06em;
     --mobile-section-title-size: clamp(0.98rem, 3.75vw, 1.1rem);
@@ -20,12 +23,10 @@
     --id-card-label-size: var(--home-toc-item-size);
     --id-card-body-size: var(--home-toc-item-size);
     --id-card-chibi-gap: clamp(1.5rem, 3.5vh, 2.25rem);
-    --id-card-nudge-x: clamp(0.35rem, 1.5vw, 0.55rem);
-    --paper-margin-x: 10px;
     --paper-margin-y: 6px;
     --paper-height-max: 0.88;
-    --paper-h: calc((100vh - var(--paper-margin-y) * 2) * var(--paper-height-max));
-    --paper-back-x: 5px;
+    --paper-h: calc((100dvh - var(--paper-margin-y) * 2) * var(--paper-height-max));
+    --paper-back-x: 0px;
     --paper-back-y: 4px;
     --slide-duration: 0.78s;
     --slide-enter-x: 8%;
@@ -40,6 +41,21 @@
       var(--mobile-chrome-h) + var(--mobile-nav-h) + 0.75rem + env(safe-area-inset-bottom, 0px)
     );
     --mobile-scroll-fade-h: 0.85rem;
+  }
+
+  html.is-mobile,
+  html.is-mobile body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  html.is-mobile .deck {
+    overflow-x: clip;
+  }
+
+  html.is-mobile .slide::before,
+  html.is-mobile .slide::after {
+    height: var(--paper-h);
   }
 
   /* 手機不渲染堆疊紙，減輕 GPU 負擔 */
@@ -232,6 +248,10 @@
   .slide-page .page-title-stack,
   .slide-home .page-title-stack {
     max-width: 100%;
+  }
+
+  .page-title-stack .deco-cross {
+    margin: 0 0 0.75rem;
   }
 
   .slide-page .page-title:not(.id-card-title) {
@@ -828,7 +848,17 @@
     align-items: center !important;
     width: 100% !important;
     padding: 0 !important;
-    transform: translateX(calc(-1 * var(--id-card-nudge-x))) !important;
+    transform: none !important;
+  }
+
+  html.is-mobile .slide-id-page .id-card-sheet {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+
+  html.is-mobile .slide-page.slide-id-page .page-scroll {
+    max-width: 100% !important;
+    width: auto !important;
   }
 
   html.is-mobile .slide-id-page .id-card-copy {
