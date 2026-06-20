@@ -5,7 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="記憶小鎮 — 由記憶與意識創造的理想城鎮">
 <title>記憶小鎮</title>
-<link rel="stylesheet" href="css/deck.css">
+<script>
+(function () {
+  var mobile = window.matchMedia('(max-width: 640px)').matches;
+  var cls = mobile ? 'is-mobile' : 'is-desktop';
+  document.documentElement.classList.add(cls);
+  document.addEventListener('DOMContentLoaded', function () {
+    document.body.classList.add(cls);
+  });
+})();
+</script>
+<link rel="stylesheet" href="css/deck.css?v=26">
+<link rel="stylesheet" href="css/deck-mobile.css?v=26">
 </head>
 <body>
 
@@ -44,7 +55,7 @@
           <h1 class="main-title"><span class="mark"><span class="mark-text">記憶小鎮</span></span></h1>
         </div>
         <p class="year-line">意識曆 216 年</p>
-        <nav class="home-nav-wrap" aria-label="主選單">
+        <nav class="home-nav-wrap home-nav-wrap--desktop" aria-label="主選單">
           <ul class="home-nav home-nav--side">
             <li><button type="button" data-goto="1">小鎮居民</button></li>
             <li><button type="button" data-goto="2">角色介紹</button></li>
@@ -59,9 +70,40 @@
             <li><button type="button" data-goto="12">藏書庫</button></li>
           </ul>
         </nav>
-        <p class="home-hint-row" aria-hidden="true">
-          <span class="scroll-hint">↓ 往下滑閱讀</span><span class="home-hint-sep">｜</span><span class="home-hint">→ 或使用方向鍵翻頁</span>
+        <p class="home-hint-row home-hint-row--cover" aria-hidden="true">
+          <span class="scroll-hint scroll-hint--desktop">↓ 往下滑閱讀</span>
+          <span class="home-hint-row__mobile">
+            <span class="scroll-hint scroll-hint--mobile">↓ 往下滑看目錄</span>
+            <span class="home-hint-sep home-hint-sep--mobile">｜</span>
+            <span class="scroll-hint scroll-hint--swipe">→ 往右滑下一頁</span>
+          </span>
+          <span class="home-hint home-hint--keyboard">→ 或使用方向鍵翻頁</span>
         </p>
+      </div>
+      <div class="home-toc-panel" id="homeToc" aria-label="目錄">
+        <div class="home-toc-inner">
+          <h2 class="home-toc-heading">目錄</h2>
+          <div class="home-toc-divider">
+            <span class="home-toc-divider-line" aria-hidden="true"></span>
+            <button type="button" class="home-toc-divider-flower" data-home-author="divider" aria-label="作者資訊，往下滑動">
+              <span class="deco-flower" aria-hidden="true"></span>
+            </button>
+            <span class="home-toc-divider-line" aria-hidden="true"></span>
+          </div>
+          <ul class="home-toc-list">
+            <li><button type="button" data-goto="1">小鎮居民</button></li>
+            <li><button type="button" data-goto="2">角色介紹</button></li>
+            <li><button type="button" data-goto="9">世界觀</button></li>
+            <li>
+              <button type="button" class="home-toc-flower-btn" data-home-author="toc" aria-label="作者資訊，往下滑動">
+                <span class="deco-flower home-toc-flower-glyph" aria-hidden="true"></span>
+              </button>
+            </li>
+            <li><button type="button" data-goto="10">日暮茶行</button></li>
+            <li><button type="button" data-goto="11">無名花園</button></li>
+            <li><button type="button" data-goto="12">藏書庫</button></li>
+          </ul>
+        </div>
       </div>
       <div class="home-author-panel page-body-articles" id="homeAuthor">
         <section class="home-author-section" aria-labelledby="homeAuthorTitle">
@@ -155,7 +197,7 @@
                   </span>
                 </h2>
                 <div class="id-card-text-block">
-                <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">昕</span></span></p>
+                <p class="id-card-midtitle"><span class="sub-mark"><span class="sub-mark-text">姓名</span></span>：昕</p>
                 <div class="id-card-details">
                   <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：溴 Br<sub>2</sub></span></p>
                   <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：9 / 18</span></p>
@@ -248,12 +290,11 @@
                     </span>
                   </h2>
                   <div class="id-card-text-block">
-                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">曚</span></span></p>
+                    <p class="id-card-midtitle"><span class="sub-mark"><span class="sub-mark-text">姓名</span></span>：曚</p>
                     <div class="id-card-details">
-                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">年齡</span></span>：216 歲</span></p>
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：碳 C（鑽石結構）</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：待補</span></p>
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">體重</span></span>：12 amu</span></p>
-                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">職業</span></span>：日暮茶行茶師、畫家</span></p>
                       <div class="id-card-detail id-card-detail--intro">
                         <p class="id-card-field id-card-field--solo"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">簡介</span></span>：</span></p>
                         <p class="id-card-field-body">日暮茶行的副店長，曚是昕的複製體，兩人的個性與長相一模一樣，但互相經歷的事不同，是昕想維持「自我」而創造的人，與昕關係很好。</p>
@@ -342,12 +383,11 @@
                     </span>
                   </h2>
                   <div class="id-card-text-block">
-                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">暮</span></span></p>
+                    <p class="id-card-midtitle"><span class="sub-mark"><span class="sub-mark-text">姓名</span></span>：暮</p>
                     <div class="id-card-details">
-                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">年齡</span></span>：180 歲（已故）</span></p>
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：氧化釹 Nd<sub>2</sub>O<sub>3</sub></span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：待補</span></p>
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">體重</span></span>：336 amu</span></p>
-                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">職業</span></span>：無</span></p>
                       <div class="id-card-detail id-card-detail--intro">
                         <p class="id-card-field id-card-field--solo"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">簡介</span></span>：</span></p>
                         <p class="id-card-field-body">與昕和曚關係很好，是一名比昕更有創造力的天才，即便沒有如同昕，有創造一切事物的超能力，但擁有手作與天才般的計算能力，是小鎮的主要發想人。</p>
@@ -436,12 +476,11 @@
                     </span>
                   </h2>
                   <div class="id-card-text-block">
-                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">鈴</span></span></p>
+                    <p class="id-card-midtitle"><span class="sub-mark"><span class="sub-mark-text">姓名</span></span>：鈴</p>
                     <div class="id-card-details">
-                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">年齡</span></span>：24 歲</span></p>
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：金 Au</span></p>
+                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：待補</span></p>
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">體重</span></span>：197 amu</span></p>
-                      <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">職業</span></span>：日暮茶行甜點師（藥師）</span></p>
                       <div class="id-card-detail id-card-detail--intro">
                         <p class="id-card-field id-card-field--solo"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">簡介</span></span>：</span></p>
                         <p class="id-card-field-body">日暮茶行的員工，跟曚和朶是超級好朋友，超喜歡研發新甜點與茶品，尤其喜歡吃檸檬蛋糕，常常與曚和朶出去採買食材，有點戀愛腦但一直沒交伴侶。</p>
@@ -521,7 +560,7 @@
                     </span>
                   </h2>
                   <div class="id-card-text-block">
-                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">朶</span></span></p>
+                    <p class="id-card-midtitle"><span class="sub-mark"><span class="sub-mark-text">姓名</span></span>：朶</p>
                     <div class="id-card-details">
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：綠簾石</span></p>
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：待補</span></p>
@@ -597,7 +636,7 @@
                     </span>
                   </h2>
                   <div class="id-card-text-block">
-                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">理</span></span></p>
+                    <p class="id-card-midtitle"><span class="sub-mark"><span class="sub-mark-text">姓名</span></span>：理</p>
                     <div class="id-card-details">
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：待補</span></p>
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：待補</span></p>
@@ -669,7 +708,7 @@
                     </span>
                   </h2>
                   <div class="id-card-text-block">
-                    <p class="id-card-midtitle">姓名：<span class="sub-mark"><span class="sub-mark-text">霏</span></span></p>
+                    <p class="id-card-midtitle"><span class="sub-mark"><span class="sub-mark-text">姓名</span></span>：霏</p>
                     <div class="id-card-details">
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">元素</span></span>：待補</span></p>
                       <p class="id-card-field"><span class="id-card-field-line"><span class="sub-mark"><span class="sub-mark-text">生日</span></span>：待補</span></p>
@@ -927,7 +966,39 @@
   </section>
 </div>
 
-<nav class="flower-nav" id="flowerNav" aria-label="頁面進度"></nav>
+<div class="mobile-flower-chrome" id="mobileFlowerChrome">
+  <p class="mobile-flower-hint" id="mobileFlowerHint" hidden aria-live="polite">點擊查看目錄</p>
+  <nav class="flower-nav" id="flowerNav" aria-label="頁面進度"></nav>
+</div>
+
+<div class="mobile-page-sheet" id="mobilePageSheet" hidden aria-hidden="true">
+  <button type="button" class="mobile-page-sheet-backdrop" id="mobilePageSheetBackdrop" aria-label="關閉目錄"></button>
+  <div class="mobile-page-sheet-panel home-toc-panel" role="dialog" aria-modal="true" aria-labelledby="mobilePageSheetTitle">
+    <div class="home-toc-inner">
+      <h2 class="home-toc-heading" id="mobilePageSheetTitle">目錄</h2>
+      <div class="home-toc-divider">
+        <span class="home-toc-divider-line" aria-hidden="true"></span>
+        <button type="button" class="home-toc-divider-flower" data-mobile-sheet-author="divider" aria-label="作者資訊">
+          <span class="deco-flower" aria-hidden="true"></span>
+        </button>
+        <span class="home-toc-divider-line" aria-hidden="true"></span>
+      </div>
+      <ul class="home-toc-list" id="mobilePageSheetList">
+        <li><button type="button" data-goto="1">小鎮居民</button></li>
+        <li><button type="button" data-goto="2">角色介紹</button></li>
+        <li><button type="button" data-goto="9">世界觀</button></li>
+        <li>
+          <button type="button" class="home-toc-flower-btn" data-mobile-sheet-author="toc" aria-label="作者資訊">
+            <span class="deco-flower home-toc-flower-glyph" aria-hidden="true"></span>
+          </button>
+        </li>
+        <li><button type="button" data-goto="10">日暮茶行</button></li>
+        <li><button type="button" data-goto="11">無名花園</button></li>
+        <li><button type="button" data-goto="12">藏書庫</button></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <div class="deck-controls">
   <button type="button" class="btn-arrow" id="btnPrev" aria-label="上一頁">‹</button>
@@ -935,6 +1006,6 @@
   <button type="button" class="btn-arrow" id="btnNext" aria-label="下一頁">›</button>
 </div>
 
-<script src="js/deck.js"></script>
+<script src="js/deck.js?v=26"></script>
 </body>
 </html>
